@@ -81,7 +81,7 @@ class OrderServiceTest {
   }
 
 
-
+  // getbook 함수 따로 뺌
   private Book getBook(String name, int price, int stockQuantity) {
     Book book = new Book();
     book.setName(name);
