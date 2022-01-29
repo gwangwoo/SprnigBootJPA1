@@ -18,7 +18,7 @@ public abstract class Item {
   @Column(name = "item_id")
   private Long id;
 
-  private String name;
+  public String name;
   private int price;
   private int stockQuantity;
 
