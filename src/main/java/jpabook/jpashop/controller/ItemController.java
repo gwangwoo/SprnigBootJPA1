@@ -22,6 +22,7 @@ public class ItemController {
   @GetMapping("/new")
   public String createForm(Model model) {
     model.addAttribute("form" , new BookForm());
+
     return "items/createItemForm";
   }
 
@@ -56,14 +57,8 @@ public class ItemController {
   }
 
   @PostMapping("/{id}/edit")
-  public String updateItem(@ModelAttribute("form") BookForm form) {
-    Book book = new Book();
-    book.setId(form.getId());
-    book.setName(form.getName());
-    book.setPrice(form.getPrice());
-    book.setStockQuantity(form.getStockQuantity());
-    book.setAuthor(form.getAuthor());
-    book.setIsbn(form.getIsbn());
+  public String updateItem(@PathVariable Long id , @ModelAttribute("form") BookForm form) {
+    itemService.updateItem(id, form.getName(), form.getPrice(), form.getStockQuantity());
     return "redirect:/";
   }
 }
